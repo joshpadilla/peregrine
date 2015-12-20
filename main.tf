@@ -1,4 +1,4 @@
-# Specify the provider and access details
+#AWS Provider access
 provider "aws" {
   region = "${var.aws_region}"
 }
@@ -126,8 +126,8 @@ resource "aws_instance" "web" {
   # Our Security group to allow HTTP and SSH access
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
 
-  # We're going to launch into the same subnet as our ELB. In a production
-  # environment it's more common to have a separate private subnet for
+  # Launch into the same subnet as our ELB. In a production
+  # environment  more common to have a separate private subnet for
   # backend instances.
   subnet_id = "${aws_subnet.default.id}"
 
